@@ -5,6 +5,12 @@ public class Parent {
 	private int x;
 
 	public void printParent() {
-		System.out.println();
+		System.out.println("부모 메소드 호출");
+		
 	}	
+	public void print() {
+		
+	}
+	
+	
 }

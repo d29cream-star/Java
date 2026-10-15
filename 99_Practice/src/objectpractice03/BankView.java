@@ -56,7 +56,7 @@ public class BankView {
 
 	public void deposit() {
 		BankAccount ba = bc.deposit();
-		if (bc.deposit() == null) {
+		if (ba == null) {
 			System.out.println("계좌 개설을 진행해주세요.");
 		} else {
 
@@ -64,9 +64,10 @@ public class BankView {
 				System.out.print("입금하실 금액을 입력해주세요.>");
 				int input = sc.nextInt();
 				sc.nextLine();
+				
 				if (input >= 0) {
+					int balance = bc.deposit(input);
 					System.out.println(input + " 원 입금하셨습니다.");
-					ba.setBalance(ba.getBalance() + input);
 					System.out.println(ba.getName() + "님의 계좌에는 " + ba.getBalance() + " 원 있습니다.");
 					break;
 				} else {
@@ -94,10 +95,11 @@ public class BankView {
 					System.out.print("출금하실 금액을 입력해주세요.>");
 					int output = sc.nextInt();
 					sc.nextLine();
+					int balance = bc.withdraw(output);
+					if (output <= ba.getBalance() && output > 0) {
 					
-					if (output <= ba.getBalance() && output >= 0) {
 						System.out.println(output + " 원 출금하셨습니다.");
-						ba.setBalance(ba.getBalance() - output);
+						
 						System.out.println(ba.getName() + "님의 계좌에는 " + ba.getBalance() + " 원 있습니다.");
 					} else if (output < 0) {
 						System.out.println("출금액은 0보다 커야합니다.");

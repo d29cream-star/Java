@@ -15,5 +15,8 @@ public class BankController {
 	}
 	public BankAccount withdraw() {
 		return bs.withdraw();
+		
+	//	BankView bv = new BankView();
+	//		bv.deposit(); 
 	}
 }

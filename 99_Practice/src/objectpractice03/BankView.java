@@ -56,43 +56,56 @@ public class BankView {
 
 	public void deposit() {
 		BankAccount ba = bc.deposit();
-		while (true) {
-			System.out.print("입금하실 금액을 입력해주세요.>");
-			int input = sc.nextInt();
-			sc.nextLine();
-			if (input >= 0) {
-				System.out.println(input + " 원 입금하셨습니다.");
-				ba.setBalance(ba.getBalance() + input);
-				System.out.println(ba.getName() + "님의 계좌에는 " + ba.getBalance() + " 원 있습니다.");
-				break;
-			} else {
-				System.out.println("입금액을 다시 확인해주세요.");
+		if (bc.deposit() == null) {
+			System.out.println("계좌 개설을 진행해주세요.");
+		} else {
+
+			while (true) {
+				System.out.print("입금하실 금액을 입력해주세요.>");
+				int input = sc.nextInt();
+				sc.nextLine();
+				if (input >= 0) {
+					System.out.println(input + " 원 입금하셨습니다.");
+					ba.setBalance(ba.getBalance() + input);
+					System.out.println(ba.getName() + "님의 계좌에는 " + ba.getBalance() + " 원 있습니다.");
+					break;
+				} else {
+					System.out.println("입금액을 다시 확인해주세요.");
+				}
 			}
 		}
-
 	}
 
 	public void withdraw() {
 		BankAccount ba = bc.withdraw();
-		while (true) {
-			System.out.print("출금하실 금액을 입력해주세요.>");
-			int output = sc.nextInt();
-			sc.nextLine();
-			System.out.print("비밀번호를 입력해주세요.>"); 
-			String pin = sc.nextLine();
-			if (ba.getPinNum() != pin) {System.out.println("다시 입력해주세요."); //여기서부터 로직 이상함/식을 분리해서 service에 넣고 싶은데 어떻게 분리해야하는지
-			}else {
-				if (output > 0) {
-					System.out.println(output + " 원 출금하셨습니다.");
-					ba.setBalance(ba.getBalance() - output);
-					System.out.println(ba.getName() + "님의 계좌에는 " + ba.getBalance() + " 원 있습니다.");
-			} 	else if (output <= 0) {
-					System.out.println("출금액은 0보다 커야합니다.");
-			} 	else {
-					System.out.println("잔액이 부족합니다.");
+		if (bc.withdraw() == null) {
+			System.out.println("계좌 개설을 진행해주세요.");
+		} else {
+
+			while (true) {
+
+				System.out.print("출금을 위하여 비밀번호를 입력해주세요.>");
+				String pin = sc.nextLine();
+
+				if (!ba.getPinNum().equals(pin)) {
+					System.out.println("다시 입력해주세요.");
+				} else {
+
+					System.out.print("출금하실 금액을 입력해주세요.>");
+					int output = sc.nextInt();
+					sc.nextLine();
+					
+					if (output <= ba.getBalance() && output >= 0) {
+						System.out.println(output + " 원 출금하셨습니다.");
+						ba.setBalance(ba.getBalance() - output);
+						System.out.println(ba.getName() + "님의 계좌에는 " + ba.getBalance() + " 원 있습니다.");
+					} else if (output < 0) {
+						System.out.println("출금액은 0보다 커야합니다.");
+					} else {
+						System.out.println("잔액이 부족합니다.");
+					}
+				}
 			}
-			
 		}
 	}
-}
 }

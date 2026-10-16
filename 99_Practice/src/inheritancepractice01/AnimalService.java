@@ -4,12 +4,21 @@ public class AnimalService {
 
 	private Dog d = new Dog();
 	
-	public void join(Dog d) {
-		this.d = d; //여기에서 일치여부 쓰기구나!
-		
+	public Dog join(Dog d) {
+		this.d = d;
+		return d;
 	}
-	public Dog check(String name) {
-		return check(name);
+		//System.out.println(d);
+		//System.out.println(this.d);
+		
+		
+
+	public String check(name) {
+		if(d.getName().equals(name)) {
+			return this.d;
+		}
+		
+
 	}
 	
 }

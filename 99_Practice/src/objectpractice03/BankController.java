@@ -11,12 +11,17 @@ public class BankController {
 		}	
 	public BankAccount deposit() {
 		return bs.deposit();
+		
+	}
+	public int deposit(int input){
+		return bs.deposit(input);
 	
 	}
 	public BankAccount withdraw() {
 		return bs.withdraw();
-		
-	//	BankView bv = new BankView();
-	//		bv.deposit(); 
+	}
+	
+	public int withdraw(int output) {
+		return bs.withdraw(output);
 	}
 }

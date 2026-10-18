@@ -2,28 +2,28 @@ package inheritancepractice01;
 
 public class Cat extends Animal{
 
-	private String favorite;
+	private String color;
 
 	public Cat() {
 		super();
 	}
 
-	public Cat(String name, int age, String favorite) {
+	public Cat(String name, int age, String color) {
 		super(name, age);
-		this.favorite = favorite;
+		this.color = color;
 	}
 
-	public String getFavorite() {
-		return favorite;
+	public String getColor() {
+		return color;
 	}
 
-	public void setFavorite(String favorite) {
-		this.favorite = favorite;
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 	@Override
 	public String toString() {
-		return super.toString() + "선호 사료 : " + favorite;
+		return super.toString() + "털색 : " + color;
 	}
 	
 }

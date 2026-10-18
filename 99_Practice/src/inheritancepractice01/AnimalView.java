@@ -34,23 +34,32 @@ public class AnimalView {
 		}
 	}
 	public void join() {
+		System.out.println("동물의 종을 선택해주세요.");
+		System.out.println("1. 개, 2.고양이");
+		System.out.print("숫자 입력>>");
+		int num	= sc.nextInt();
+		sc.nextLine();
+		
 		System.out.print("반려동물의 이름을 입력해주세요.");
 		String name = sc.nextLine();
 		System.out.print("반려동물의 나이를 입력해주세요.");
 		int age = sc.nextInt();sc.nextLine();
-		System.out.print("반려동물의 종을 입력해주세요.");
-		String species = sc.nextLine();
 		
-		ac.join(name, age, species);
+		ac.join(num, name, age);
 		System.out.println("등록이 완료 되었습니다.");
 	}
 
 	public void check() {
 		System.out.print("반려동물의 이름을 입력해주세요.");
 		String name = sc.nextLine();
-		ac.check(name);
-		System.out.println("확인되었습니다.");
-		System.out.println("등록하신 동물 정보 " + toString());
+		Animal result = ac.check(name);
+		
+		if(result != null) {
+			System.out.println("확인되었습니다.");
+			System.out.println("등록하신 동물 정보 " + result.toString());
+
+		}
+		else {System.out.println("등록하신 정보가 없습니다.");}
 		}
 
 	public void feed() {

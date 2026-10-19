@@ -1,6 +1,7 @@
 
 package com.kh.chap01.abstraction.run;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.kh.chap01.abstraction.model.vo.Box;
@@ -14,7 +15,12 @@ public class Craft {
 
 		System.out.println("크래프트 시작");
 		System.out.print("상자 재질 선택 : ");
-		b.texture = sc.nextLine();
+		b.texture = null;
+		try{
+			b.texture = sc.nextLine();
+		}catch(InputMismatchException e) {
+			
+		}
 
 		while (true) {
 			System.out.println();
@@ -23,8 +29,13 @@ public class Craft {
 
 			System.out.print("번호를 선택하세요. ");
 			System.out.print("1: 쌓기 2: 제거하기 3: 오른쪽 이동하기 4: 왼쪽 이동하기 5: 위쪽 이동하기 6: 아래쪽 이동하기 7: 프로그램 종료 ");
-			int height = sc.nextInt();
-			sc.nextLine();
+			int height = 0;
+			try{
+				height = sc.nextInt();
+			}catch(InputMismatchException e) {
+			}finally {
+				sc.nextLine();
+			}
 
 			switch (height) {
 			case 1:
@@ -46,7 +57,7 @@ public class Craft {
 				b.movedown();
 				break;
 			case 7:
-				return;
+				sc.close();return;
 
 			}
 

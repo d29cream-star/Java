@@ -1,5 +1,6 @@
 package conditionpractice02;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ForPractice02 {
@@ -20,18 +21,37 @@ public class ForPractice02 {
 
 		while (true) {
 			System.out.print("메뉴 선택:");
-			menuName = sc.nextLine();
+			menuName = null;
+			try{
+				menuName = sc.nextLine();
+			}catch(InputMismatchException e) {
+				
+			}
 
 			if(menuName.equals("짜장면")) {
 				System.out.print("수량 선택:");
-				count1 = sc.nextInt();
-				sc.nextLine();
+				count1 = 0;
+				try{
+					count1 = sc.nextInt();
+				}catch(InputMismatchException e) {
+					
+				}
+				finally{
+					sc.nextLine();
+				}
 				System.out.println("짜장면 " + count1 + "개 주문완료, 가격은 " + (price1 * count1) + "입니다.");
 			}
 			else if (menuName.equals("짬뽕")) {
 				System.out.print("수량 선택:");
-				count2 = sc.nextInt();
-				sc.nextLine();
+				count2 = 0;
+				try{
+					count2 = sc.nextInt();
+				}catch(InputMismatchException e) {
+					
+				}
+				finally{
+					sc.nextLine();
+				}
 				System.out.println("짬뽕 " + count2 + "개 주문완료, 가격은 " + (price2 * count2) + "입니다.");
 			} 
 			else if(menuName.equals("주문완료")){break;
@@ -41,7 +61,7 @@ public class ForPractice02 {
 			else {System.out.println("다시 입력:");}
 			}
 		
-		System.out.println("총액은 " + (price1 * count1 + price2 * count2) + "원 입니다.");
+		System.out.println("총액은 " + (price1 * count1 + price2 * count2) + "원 입니다."); sc.close();
 		
 		}
 }

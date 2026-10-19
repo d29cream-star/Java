@@ -1,5 +1,6 @@
 package run;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import objectpractice02.BankAccount;
@@ -20,21 +21,37 @@ public class Run03 {
 			System.out.println();
 			System.out.println("1. 입금 2. 출금 3. 프로그램종료");
 			System.out.print("메뉴를 선택해주세요.>");
-			int menuNo = sc.nextInt();
+			int menuNo = 0;
+			try{
+				menuNo = sc.nextInt();
+			}catch(InputMismatchException e	) {
+				
+			}
 			sc.nextLine();
 
 			switch (menuNo) {
 			case 1:
 				System.out.print("입금하실 금액을 입력해주세요.>");
-				int input = sc.nextInt();
+				int input = 0;
+				try{
+					input = sc.nextInt();
+				}catch(InputMismatchException e) {
+					
+				}
 				sc.nextLine();
+				
 				ba.deposit();
 				ba.setBalance(ba.getBalance() + input);
 				System.out.println(input + " 원 입금하여 현재 잔고 " + ba.getBalance() + "원 입니다.");
 				break;
 			case 2:
 				System.out.print("출금하실 금액을 입력해주세요.>");
-				int output = sc.nextInt();
+				int output = 0;
+				try{
+					output = sc.nextInt();
+				}catch(InputMismatchException e) {
+					
+				}
 				sc.nextLine();
 				ba.withdraw();
 				if (output <= ba.getBalance()) {
@@ -46,10 +63,10 @@ public class Run03 {
 					break;
 				}
 			case 3:
-				return;
+				sc.close();return;
 
 			}
-		}
+			}	
 
 	}
 

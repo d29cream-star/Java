@@ -1,5 +1,6 @@
 package run;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import objectpractice02.BankAccount;
@@ -20,7 +21,12 @@ public class Run04 {
 			System.out.println();
 			System.out.println("1. 입금 2. 출금 3. 프로그램종료");
 			System.out.print("메뉴를 선택해주세요.>");
-			int menuNo = sc.nextInt();
+			int menuNo = 0;
+			try{
+				menuNo = sc.nextInt();
+			}catch(InputMismatchException e) {
+				
+			}
 			sc.nextLine();
 
 			switch (menuNo) {
@@ -37,7 +43,7 @@ public class Run04 {
 					break;
 				}
 			case 3:
-				return;
+				sc.close();return;
 
 			}
 		}

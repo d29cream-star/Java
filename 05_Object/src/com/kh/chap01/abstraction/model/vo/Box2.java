@@ -1,8 +1,6 @@
 
 package com.kh.chap01.abstraction.model.vo;
 
-import java.util.ArrayList;
-
 public class Box2 {
 
 	public String texture;

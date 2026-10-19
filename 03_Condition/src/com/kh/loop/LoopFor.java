@@ -1,5 +1,6 @@
 package com.kh.loop;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LoopFor {
@@ -28,10 +29,16 @@ public class LoopFor {
 	public void gugudan() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("몇 단을 알고 싶나요?");
-		int dan = sc.nextInt();
+		int dan = 0;
+		try{
+			dan = sc.nextInt();
+		}catch(InputMismatchException e) {
+			
+		}
 		
 		for(int i= 1; 1<= i && i <= 9; i++) {
 			System.out.println(dan +" * " + i + " = " + dan * i);
+			sc.close();
 		}
 		
 	}

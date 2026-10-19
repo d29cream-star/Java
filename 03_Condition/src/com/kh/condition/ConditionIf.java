@@ -1,5 +1,6 @@
 package com.kh.condition;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConditionIf {
@@ -31,7 +32,12 @@ public class ConditionIf {
 		System.out.println("토마토는 과일일까요?");
 		Scanner sc = new Scanner(System.in);
 		System.out.print("정답을 o 또는 x로 입력하세요.");
-		char answer = sc.nextLine().charAt(0);
+		char answer = ' ';
+		try{
+			answer = sc.nextLine().charAt(0);
+		}catch(InputMismatchException e) {
+
+		}
 		if (answer == 'x'||answer == 'X') {System.out.println("정답입니다.");count++;
 		}
 		if (answer == 'o'||answer == 'O') {System.out.println("오답입니다.");wrongCount++;
@@ -42,14 +48,18 @@ public class ConditionIf {
 		
 		System.out.println("문제 : 기린은 서서 잠을 잔다."	);
 		System.out.print("정답을 o 또는 x로 입력하세요.");
-		answer = sc.nextLine().charAt(0);
+		try{
+			answer = sc.nextLine().charAt(0);
+		}catch(InputMismatchException e) {
+			
+		}
 		if(answer == 'o' || answer == 'O') {System.out.println("정답입니다.");count++;
 		}
 		if(answer == 'x' || answer == 'X') {System.out.println("오답입니다.");wrongCount++;
 		}
 		if(!(answer == 'o'||answer == 'O'||answer == 'x'||answer == 'X')) {System.out.println("다시 입력하세요.");wrongCount++;
 		}
-		
+		sc.close();
 		System.out.println("-------------------");
 		System.out.println("퀴즈의 결과");
 		System.out.println("정답:" + count + "개");

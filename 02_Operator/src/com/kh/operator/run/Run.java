@@ -1,13 +1,12 @@
 package com.kh.operator.run;
 
-import com.kh.operator.controller.OperatorController;
 import com.kh.operator.controller.PresentToStudent;
 
 public class Run {
 
 	public static void main(String[] args) {
 		
-		OperatorController oc = new OperatorController();
+		//OperatorController oc = new OperatorController();
 		//oc.arithetic();
 	
 		//oc.increase();
@@ -21,8 +20,8 @@ public class Run {
 		//oc.logical();
 		
 		PresentToStudent ps = new PresentToStudent();
-		ps.triple();
-		
+		//ps.triple();
+		ps.presentToStudent();
 		
 	}
 }

@@ -1,5 +1,6 @@
 package objectpractice03;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BankView {
@@ -14,8 +15,13 @@ public class BankView {
 			System.out.println("메뉴선택");
 			System.out.println("1. 계좌개설 2. 입금 3. 출금 4. 나가기");
 			System.out.print("메뉴 번호를 선택해 주세요.>");
-			int menuNum = sc.nextInt();
+			int menuNum = 0;
+			try {
+				menuNum = sc.nextInt();
+			} catch (InputMismatchException e) {
+			}
 			sc.nextLine();
+
 			switch (menuNum) {
 			case 1:
 				craft();
@@ -30,6 +36,7 @@ public class BankView {
 				return;
 			default:
 				System.out.println("다시 선택해주세요.");
+
 				break;
 
 			}
@@ -40,12 +47,22 @@ public class BankView {
 	public void craft() {
 
 		System.out.print("성함을 입력해주세요.>");
-		String name = sc.nextLine();
+		String name = null;
+		try {
+			name = sc.nextLine();
+		} catch (InputMismatchException e) {
+
+		}
 		System.out.println("한국은행 " + name + " 님의 계좌가 개설되었습니다.");
 
 		System.out.println();
 		System.out.print("비밀번호를 4자리를 입력해주세요.>");
-		String pinNum = sc.nextLine();
+		String pinNum = null;
+		try {
+			pinNum = sc.nextLine();
+		} catch (InputMismatchException e) {
+
+		}
 		System.out.println("비밀번호가 설정되었습니다.");
 		int balance = 0;
 		System.out.println("계좌 잔액은 " + balance + " 원 입니다.");
@@ -62,9 +79,15 @@ public class BankView {
 
 			while (true) {
 				System.out.print("입금하실 금액을 입력해주세요.>");
-				int input = sc.nextInt();
-				sc.nextLine();
-				
+				int input = 0;
+				try {
+					input = sc.nextInt();
+				} catch (InputMismatchException e) {
+
+				} finally {
+					sc.nextLine();
+				}
+
 				if (input >= 0) {
 					int balance = bc.deposit(input);
 					System.out.println(input + " 원 입금하셨습니다.");
@@ -86,20 +109,31 @@ public class BankView {
 			while (true) {
 
 				System.out.print("출금을 위하여 비밀번호를 입력해주세요.>");
-				String pin = sc.nextLine();
+				String pin = null;
+				try {
+					pin = sc.nextLine();
+				} catch (InputMismatchException e) {
+
+				}
 
 				if (!ba.getPinNum().equals(pin)) {
 					System.out.println("다시 입력해주세요.");
 				} else {
 
 					System.out.print("출금하실 금액을 입력해주세요.>");
-					int output = sc.nextInt();
-					sc.nextLine();
+					int output = 0;
+					try {
+						output = sc.nextInt();
+					} catch (InputMismatchException e) {
+
+					} finally {
+						sc.nextLine();
+					}
 					int balance = bc.withdraw(output);
 					if (output <= ba.getBalance() && output > 0) {
-					
+
 						System.out.println(output + " 원 출금하셨습니다.");
-						
+
 						System.out.println(ba.getName() + "님의 계좌에는 " + ba.getBalance() + " 원 있습니다.");
 					} else if (output < 0) {
 						System.out.println("출금액은 0보다 커야합니다.");
@@ -107,7 +141,10 @@ public class BankView {
 						System.out.println("잔액이 부족합니다.");
 					}
 				}
+
 			}
 		}
+
+		sc.close();
 	}
 }

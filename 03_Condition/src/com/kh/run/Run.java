@@ -1,7 +1,6 @@
 package com.kh.run;
 
-import com.kh.loop.LoopFor;
-import com.kh.loop.LoopWhile;
+import com.kh.condition.ConditionElse;
 
 public class Run {
 
@@ -11,15 +10,15 @@ public class Run {
 		//ci.method0();
 		//ci.quiz();
 		
-		//ConditionElse ce = new ConditionElse();
-		//ce.method3();
+		ConditionElse ce = new ConditionElse();
+		ce.method1();
 		//ce.ageCheck();
 	
 		//ConditionSwitch cs = new ConditionSwitch();
-		//cs.method0();
+		//cs.method1();
 		
-		LoopFor lf = new LoopFor();
-		lf.method1();
+		//LoopFor lf = new LoopFor();
+		//lf.method1();
 		//lf.gugudan();
 		//lf.star();
 		

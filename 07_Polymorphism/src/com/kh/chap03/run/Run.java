@@ -1,5 +1,6 @@
 package com.kh.chap03.run;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.kh.chap03.service.BlackBeanSauceNoodles;
@@ -19,21 +20,30 @@ public class Run {
 		System.out.println("2. 팔공반점");
 		System.out.print("메뉴 선택");
 		Scanner sc = new Scanner(System.in);
-		int menuNo = sc.nextInt();
+		int menuNo = 0;
+		try {
+			menuNo = sc.nextInt();
+		} catch (InputMismatchException e) {
+			sc.close();
+		}
 		BlackBeanSauceNoodles bbsn = null;
 		DeliveryServiceI d = null;
 		switch (menuNo) {
 		case 1:
 			bbsn = new HongChineseRestaurant();
 			d = new HongChineseRestaurant();
+			bbsn.makeNoodles();
+			d.delivery();
 			break;
+			
 		case 2:
 			bbsn = new EightZeroRestaurant();
 			d = new EightZeroRestaurant();
+			bbsn.makeNoodles();
+			d.delivery();
 			break;
+			
 		}
-		bbsn.makeNoodles();
-		d.delivery();
 
 	}
 

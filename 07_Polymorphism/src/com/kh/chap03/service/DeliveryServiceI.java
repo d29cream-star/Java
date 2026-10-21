@@ -8,6 +8,9 @@ public interface DeliveryServiceI {
 	
 	default void close() {
 		System.out.println("닫힙니다.");
+		
+		
+		
 	}
 	
 }

@@ -2,7 +2,7 @@ package polymorphismpractice01;
 
 public class View {
 
-	public void view() {
+	public void sell() {
 		System.out.println("");
 
 	}

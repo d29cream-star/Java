@@ -8,7 +8,7 @@ public class Run {
 
 		StringController sc = new StringController();
 		sc.method1();
-		sc.method2();
+		//sc.method2();
 		//sc.method3();
 		//sc.method4();
 	}

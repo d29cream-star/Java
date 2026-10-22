@@ -15,6 +15,7 @@ public class StringController {
 		
 		System.out.println(str1);
 		System.out.println(str2);
+		System.out.println(str1==str2);
 		
 		System.out.println(str1.toString());
 		System.out.println(str2.toString());
@@ -33,7 +34,7 @@ public class StringController {
 		
 
 		System.out.println("hello".hashCode());
-
+		System.out.println(run==run2);
 		System.out.println(str1 == str2);
 
 	}

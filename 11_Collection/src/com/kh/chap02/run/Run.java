@@ -2,13 +2,19 @@ package com.kh.chap02.run;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import com.kh.chap01.Integers;
 import com.kh.chap02.model.dto.Mall;
 
 public class Run {
 
 	public static void main(String[] args) {
 
+		Integers i = new Integers();
+		i.add(2);
+		i.add(3);
+		
 		Mall[] m = new Mall[3];
 		ArrayList malls = new ArrayList();
 		System.out.println(m);
@@ -34,7 +40,27 @@ public class Run {
 		
 		malls.remove(0);
 		System.out.println(malls);
+	
+		System.out.println(malls);
+		malls.get(2);
+		Mall goyang = (Mall)malls.get(2);
+		System.out.println(goyang);
 		
+		List sub = malls.subList(0, 2);
+		System.out.println(sub);
+		
+		malls.addAll(sub);
+		System.out.println(malls);
+		
+		
+		System.out.println("---------------------");
+		((Mall)malls.get(1)).setAddress("고양시");
+		System.out.println(malls);
+		
+		System.out.println(malls.isEmpty());
+		
+		malls.clear();
+		System.out.println(malls.isEmpty());
 	}
 
 }

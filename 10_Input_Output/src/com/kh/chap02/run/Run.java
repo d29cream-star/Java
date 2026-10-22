@@ -1,6 +1,6 @@
 package com.kh.chap02.run;
 
-import com.kh.chap02.model.dao.ObjectDao;
+import com.kh.chap02.model.dao.FileCharDao;
 
 public class Run {
 
@@ -9,7 +9,7 @@ public class Run {
 		//FileByteDao fbd = new FileByteDao();
 		//fbd.outputToFile();
 		//fbd.inputFromFile();
-		//FileCharDao fcd = new FileCharDao();
+		FileCharDao fcd = new FileCharDao();
 		//fcd.outputToFile();
 		//fcd.myDiary();
 		
@@ -17,9 +17,10 @@ public class Run {
 		//bd.outputFile();
 		//bd.inputFile();
 		
-		ObjectDao od = new ObjectDao();
-		od.inputfile();
+		//ObjectDao od = new ObjectDao();
+		//od.inputfile();
 		
+				
 	}
 
 }

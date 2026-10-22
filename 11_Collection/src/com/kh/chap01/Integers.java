@@ -24,6 +24,9 @@ public class Integers {
 		
 		
 	}
+	
+	
+	
 	@Override
 	public String toString() {
 		if(nums == null) {
@@ -31,16 +34,21 @@ public class Integers {
 		}
 		
 		int max = nums.length - 1;
-		if(max ==-1) {
+		if(max == -1) {
 			return "[]";
 			
 		}
 		
 		StringBuilder sb =new StringBuilder();
-		//sb.append(nums[i]);
-		//if(i + 1 ==size) {
-		//	1시40분
-		//}
+		sb.append("[");
+		for(int i = 0; i < size; i++) {
+		sb.append(nums[i]);
+		if(i + 1 == size	) {
+			return sb.append("]").toString();
+		}
+		sb.append(",");
 		
+		}
+		return null;
 	}
 }

@@ -12,18 +12,25 @@ public class StringController {
 	public void method1() {
 		String str1 = new String("hello");
 		String str2 = new String("hello");
-		MathRun run = new MathRun();
-
-		System.out.println(run);
+		
 		System.out.println(str1);
+		System.out.println(str2);
+		
+		System.out.println(str1.toString());
 		System.out.println(str2.toString());
-
+		
+		MathRun run = new MathRun();
 		MathRun run2 = new MathRun();
+		System.out.println(run);
+		System.out.println(run2);
 		System.out.println(run.equals(run2));
 		System.out.println(str1.equals(str2));
 
 		System.out.println(str1.hashCode());
 		System.out.println(str2.hashCode());
+		System.out.println(run.hashCode());
+		System.out.println(run2.hashCode());
+		
 
 		System.out.println("hello".hashCode());
 

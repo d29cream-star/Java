@@ -22,10 +22,7 @@ public class Integers {
 	public int get(int i) {
 		return nums[i];
 		
-		
 	}
-	
-	
 	
 	@Override
 	public String toString() {

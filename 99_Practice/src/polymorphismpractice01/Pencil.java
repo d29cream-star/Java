@@ -1,6 +1,6 @@
 package polymorphismpractice01;
 
-public class Pencil extends Stationery{
+public class Pencil implements Stationery{
 
 	@Override
 	public void sell() {

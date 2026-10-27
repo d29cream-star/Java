@@ -13,11 +13,11 @@ public class NewsController {
 	public List<News> read() {
 		return ns.read();
 	}
-	public void update(String name, String publisher) {
-		ns.update(name, publisher);
+	public void update(String name, String updateName, String publisher) {
+		ns.update(name, updateName, publisher);
 		
 	}
-	public void delete() {
-		
+	public void delete(String name) {
+		ns.delete(name);
 	}
 }

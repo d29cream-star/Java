@@ -1,6 +1,6 @@
 package polymorphismpractice01;
 
-public abstract class Stationery {
+public interface Stationery {
 
 	public abstract void sell();
 }

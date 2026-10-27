@@ -17,18 +17,17 @@ public class NewsService {
 	
 	}
 	
-	public void update(String name, String publisher) {
+	public void update(String name, String updateName, String publisher) {
 		for(int i = 0; i < news.size(); i ++) {
 			if(news.get(i).getName().equals(name)){
-				news.set( i , new News(name, publisher));
-			
+				news.set( i , new News(updateName, publisher));
 			}break;
 		}
 	}
-	public void delete(String name, String publisher) {
+	public void delete(String name) {
 		for(int i = 0; i < news.size(); i ++) {
 			if(news.get(i).getName().equals(name)) {
-				news.delete(i);
+				news.remove(i);break;
 			}
 		}
 	}

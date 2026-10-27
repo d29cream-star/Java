@@ -15,8 +15,8 @@ public class ShoppingController {
 		return ss.read();
 	}
 	
-	public void remove() {
-		ss.remove();
+	public void remove(String title){
+		ss.remove(title);
 	}
 	public void update(String title, int newPrice) {
 		ss.update(title, newPrice);

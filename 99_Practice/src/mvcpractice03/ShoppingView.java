@@ -89,7 +89,6 @@ public class ShoppingView {
 		else {
 				System.out.println("등록된 제품이 없습니다.");
 		}
-
 	}
 
 	public void remove() {
@@ -99,7 +98,7 @@ public class ShoppingView {
 		String title = s.nextLine();
 		if("".equals(title)||title.isEmpty()||title.isBlank()) {
 			System.out.println("잘못 입력하셨습니다.");
-			return;
+			sc.remove(title);
 		}
 		read();
 		System.out.println("삭제 되었습니다.");

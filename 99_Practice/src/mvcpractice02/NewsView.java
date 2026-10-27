@@ -81,13 +81,19 @@ public class NewsView {
 	public void update() {
 		System.out.print("수정하실 기사 제목을 입력하세요>");
 		String name = sc.nextLine();
-		System.out.print("기사를 발행하는 신문사를 입력하세요.");
+		System.out.print("변경된 기사 제목을 입력하세요>");
+		String updateName = sc.nextLine();
+		System.out.print("변경된 신문사를 입력하세요.");
 		String publisher = sc.nextLine();
-		nc.update(name, publisher);
+		nc.update(name, updateName, publisher);
 
 	}
 
 	public void delete() {
-
+		System.out.println("기사를 삭제하겠습니다.");
+		read();
+		System.out.print("삭제하실 기사 제목을 입력해주세요.>");
+		String name = sc.nextLine();
+		nc.delete(name);
 	}
 }

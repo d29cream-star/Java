@@ -98,10 +98,15 @@ public class ShoppingView {
 		String title = s.nextLine();
 		if("".equals(title)||title.isEmpty()||title.isBlank()) {
 			System.out.println("잘못 입력하셨습니다.");
-			sc.remove(title);
+			
+			return;
 		}
-		read();
-		System.out.println("삭제 되었습니다.");
+		try {
+			sc.remove(title);
+			System.out.println("삭제 되었습니다.");
+		}catch(ShoppingNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	public void update() {
 		System.out.print("변경하실 제품의 이름을 입력하세요.>");

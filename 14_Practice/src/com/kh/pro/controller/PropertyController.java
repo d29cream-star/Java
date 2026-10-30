@@ -18,7 +18,10 @@ public class PropertyController {
 	public void delete(String name) {
 		ps.delete(name);
 	}
-	public void findByLocation(String location) {
-		ps.findByLocation(location);
+	public List<Property> findByLocation(String location) {
+		return ps.findByLocation(location);
+	}
+	public void update(String name, int newPrice) {
+		ps.update(name, newPrice);
 	}
 }

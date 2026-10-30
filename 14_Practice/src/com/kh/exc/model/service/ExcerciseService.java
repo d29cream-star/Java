@@ -40,19 +40,16 @@ public class ExcerciseService {
 			if (excercises.get(i).getName().equals(name)) {
 				excercises.remove(i); 
 				return;
-
 			}
 		}
+			
 		throw new ExcerciseNotFoundException("등록하신 운동이 없습니다.");
 	}
-	
 	public List<Excercise> findByTarget(String target) {
 		return excercises.stream()
 						.filter(e -> e.getTarget().equals(target))
 						.toList();
 	}
-
-	
 	public void updateWeight(String name, int newWeight) {
 		for(Excercise e : excercises) {
 			if(e.getName().equals(name)) {

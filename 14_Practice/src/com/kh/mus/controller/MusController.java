@@ -15,5 +15,13 @@ public class MusController {
 	public void save(String name, String singer, int playtime, String genre) {
 		ms.save(new Music(name,singer,playtime,genre));
 	}
-	
+	public void delete(String name) {
+		ms.delete(name);
+	}
+	public List<Music> findByGenre(String genre) {
+		return ms.findByGenre(genre);
+	}
+	public void update(String name, int newPlaytime) {
+		ms.update(name,newPlaytime);
+	}
 }

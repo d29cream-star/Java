@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.kh.pro.exception.DuplicateNameException;
 import com.kh.pro.exception.InvalidPriceException;
+import com.kh.pro.exception.PropertyNotFoundException;
 import com.kh.pro.model.dto.Property;
 
 public class PropertyService {
@@ -53,8 +54,19 @@ public class PropertyService {
 			}
 		}
 	}
-	public void findByLocation(String location) {
-		
+	public List<Property> findByLocation(String location) {
+		return propertys.stream()
+						.filter(p -> p.getLocation().equals(location))
+						.toList();
+	}
+	public void update(String name, int newPrice) {
+		for (Property p : propertys) {
+			if(p.getName().equals(name)) {
+				p.setPrice(newPrice);
+				return;
+			}
+			throw new PropertyNotFoundException("해당 상품을 찾을 수 없습니다.");
+		}
 	}
 
 }

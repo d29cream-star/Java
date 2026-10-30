@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.kh.pro.controller.PropertyController;
 import com.kh.pro.exception.DuplicateNameException;
+import com.kh.pro.exception.PropertyNotFoundException;
 import com.kh.pro.model.dto.Property;
 
 public class PropertyView {
@@ -96,7 +97,7 @@ public class PropertyView {
 		try {
 			pc.save(name, price, grade, location);
 		}catch(DuplicateNameException e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		
 	}
@@ -114,17 +115,36 @@ public class PropertyView {
 
 	public void findByLocation() {
 		System.out.print("검색하시고 싶은 지역명을 입력해주세요.");
-		String location = sc.nextLine();
-		
+		String location = sc.nextLine();		
 		List<Property> list = pc.findByLocation(location);
 		if(list.isEmpty()) {
 			System.out.println("상품이 존재하지 않습니다.");
 			return;
 		}
+		System.out.println("조회하신 상품은 아래와 같습니다.");
+		for(Property p : list) {
+			System.out.println(p.getLocation()+ "지역의 상품은 " + p.getName() + "이 있습니다.");
+		}
 	
 	}
 
 	public void update() {
-
+		System.out.print("수정하실 상품명을 입력하세요.>");
+		String name = sc.nextLine();
+		System.out.print("수정하실 상품의 가격을 입력하세요.>");
+		int newPrice = 0;
+		try {
+			newPrice = sc.nextInt();
+		}catch(InputMismatchException e){
+			e.getMessage();
+		}finally {
+			sc.nextInt();
+		}
+		try{
+			pc.update(name, newPrice);
+			System.out.println("수정이 완료되었습니다.");
+		}catch(PropertyNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

@@ -7,6 +7,10 @@ import java.util.Scanner;
 import com.kh.pet.controller.PetController;
 import com.kh.pet.exception.DuplicatePetIDException;
 import com.kh.pet.exception.InvalidPetAgeException;
+<<<<<<< HEAD
+=======
+import com.kh.pet.exception.PetNotFoundException;
+>>>>>>> branch 'main' of https://github.com/d29cream-star/Java.git
 import com.kh.pet.model.dto.Pet;
 
 public class PetView {
@@ -63,6 +67,7 @@ public class PetView {
 	public void read() {
 		List<Pet> pets = pc.read();
 		System.out.println("동물 정보를 조회합니다.");
+<<<<<<< HEAD
 		if (pets.isEmpty()) {
 			System.out.println("조회된 정보가 없습니다.");
 		} else {
@@ -72,8 +77,21 @@ public class PetView {
 				System.out.println("동물 나이 : " + p.getPetAge());
 				System.out.println("보호자 번호 :" + p.getOwnerPhone());
 			}
+=======
+		List<Pet> pets = pc.read();
+		if(!pets.isEmpty()) {
+			for(Pet p : pets) {
+				System.out.println("동물 ID : " + p.getPetID());
+				System.out.println("동물 이름: " + p.getPetName());
+				System.out.println("동물 나이: " + p.getPetAge());
+				System.out.println("보호자 폰번호 :" + p.getOwnerPhone());
+			}
+		}else {
+			System.out.println("등록된 동물이 없습니다.");
+>>>>>>> branch 'main' of https://github.com/d29cream-star/Java.git
 		}
 	}
+<<<<<<< HEAD
 
 	public void save() {
 		System.out.print("등록하실 동물 ID를 입력하세요.");
@@ -113,5 +131,80 @@ public class PetView {
 	public void findByOwnerPhone() {
 		System.out.print("보호자의 폰번호를 입력하세요.");
 		String ownerPhone = sc.nextLine();
+=======
+	public void save() {
+		System.out.print("동물 ID를 입력해주세요.");
+		String petID = sc.nextLine();
+		
+		System.out.print("동물 이름을 입력해주세요.");
+		String petName = sc.nextLine();
+		
+		System.out.print("동물 나이를 입력해주세요.");
+		int petAge = 0;
+		try {
+			petAge = sc.nextInt();
+		}catch(InputMismatchException e) {
+			System.out.println("숫자만 입력해주세요.");
+		}finally{
+			sc.nextLine();
+		}
+		System.out.print("보호자 폰 번호를 입력해주세요.");
+		String ownerPhone = sc.nextLine();
+		
+		try {
+			pc.save(petID, petName, petAge, ownerPhone);
+		}catch(DuplicatePetIDException e) {
+			System.out.println(e.getMessage());
+		}catch(InvalidPetAgeException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	public void delete() {
+		System.out.print("삭제하실 동물ID를 입력해주세요.")	;
+		String petName = sc.nextLine();
+		if(petName.isBlank()) {
+			System.out.println("동물 ID를 입력하지 않으셨습니다.");
+			return;
+		}
+		try {
+			pc.delete(petName);
+			System.out.println("삭제 완료되었습니다.");
+		}catch(PetNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	public void findByOwnerPhone() {
+		System.out.print("검색하실 보호자 폰번호를 입력하세요.");
+		String ownerPhone = sc.nextLine();
+		List<Pet> pets = pc.findByOwnerPhone(ownerPhone);
+		if(pets.isEmpty()) {
+			System.out.println("검색하신 동물이 없습니다.");
+			return;
+		}else {
+			for(Pet p : pets) {
+				System.out.println(p.getOwnerPhone() + " 님의 동물은 " + p.getPetName() + "입니다.");
+			}
+		}
+	}
+	public void update() {
+		System.out.print("등록하신 동물 ID를 입력해주세요.");
+		String petID = sc.nextLine();
+		System.out.print("변경하실 동물의 나이를 입력해주세요.");
+		int newPetAge = 0;
+		
+		try {
+			newPetAge = sc.nextInt();
+		}catch(InputMismatchException e) {
+			System.out.println("숫자만 입력해주세요.");
+		}finally {
+			sc.nextLine();
+		}try {
+			pc.update(petID, newPetAge);
+			System.out.println("변경이 완료되었습니다.");
+		}catch(PetNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
+		
+>>>>>>> branch 'main' of https://github.com/d29cream-star/Java.git
 	}
 }

@@ -15,15 +15,7 @@ public class PetController {
 	public void save(String petID, String petName, int petAge, String ownerPhone) {
 		ps.save(new Pet(petID, petName, petAge, ownerPhone));
 	}
-<<<<<<< HEAD
-	public void delete(String petID) {
-		ps.delete(petID);
-	}
-	public void findByOwnerPhone() {
-		
-	}
-}
-=======
+
 	public void delete(String petName) {
 		ps.delete(petName);
 	}
@@ -33,5 +25,5 @@ public class PetController {
 	public void update(String petID, int newPetAge) {
 		ps.update(petID, newPetAge);
 	}
-}	
->>>>>>> branch 'main' of https://github.com/d29cream-star/Java.git
+}
+

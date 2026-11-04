@@ -15,4 +15,7 @@ public class IngService {
 		ingredients.add(new Ingredient(3, "아이스크림", 3 ,"냉동", "20271111"));
 
 	}
+	public void save(Ingredient ig) {
+		
+	}
 }

@@ -101,7 +101,11 @@ public class IngView {
 			System.out.println("제품의 이름을 입력해주세요.");
 		}
 		for(Ingredient ig : ingredients) {
+			
 			System.out.println("제품이 삭제되었습니다.");
 		}
+	}
+	public void findByLocation() {
+		
 	}
 }
